@@ -24,9 +24,17 @@ Note, this example uses an NFS container that doesn't support NFSv4.
 ## Quickstart
 
 ```console
-$ kubectl create -f examples/staging/volumes/nfs/provisioner/nfs-server-gce-pv.yaml
+#$ kubectl create -f examples/staging/volumes/nfs/provisioner/nfs-server-gce-pv.yaml
+
+#Create local pv & pvc
+kubectl create -f pv.yaml
+kubectl create -f pvc.yaml
+
+#Create NFS pod
 $ kubectl create -f examples/staging/volumes/nfs/nfs-server-rc.yaml
 $ kubectl create -f examples/staging/volumes/nfs/nfs-server-service.yaml
+
+
 # get the cluster IP of the server using the following command
 $ kubectl describe services nfs-server
 # use the NFS server IP to update nfs-pv.yaml and execute the following

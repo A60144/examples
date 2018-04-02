@@ -1,0 +1,13 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nfs-pv-provisioning-demo
+  labels:
+    demo: nfs-pv-provisioning
+spec:
+  storageClassName: nfs-link
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
